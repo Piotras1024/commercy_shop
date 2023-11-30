@@ -1,0 +1,5 @@
+flask>=2.3.2
+flask-login>=0.6.2
+flask-sqlalchemy>=3.1.1
+SQLAlchemy>=2.0.21
+Werkzeug>=2.3.6

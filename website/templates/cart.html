@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}List of Items{% endblock %}
+
+
+{% block content %}
+{{ current_user.id }} <br>
+{{ current_user.email }} <br>
+<br>
+
+
+<form method="post">
+    <select name="item_id">
+      {% for item in items %}
+        <option value="{{ item.id }}">
+          {{ item.name }} - {{ item.size }} - {{ item.price }} zł
+        </option>
+      {% endfor %}
+    </select>
+    <input type="number" name="quantity" value="1">
+    <button type="submit">Add to Cart</button>
+</form>
+
+<br><br>
+<h3>Your cart List, dear {{ current_user.email }}</h3>
+
+<ul>
+  {% for item in cart_items %}
+    <li>
+      {{ item['name'] }}, {{ item['price'] }} zł, {{ item['size'] }}, Ilość: {{ item.quantity }}
+    </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}

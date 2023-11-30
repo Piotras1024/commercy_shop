@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}List of Items{% endblock %}
+
+
+{% block content %}
+  <h1>Lista przedmiotów</h1>
+  <ul>
+    {% for item in items %}
+      <li>Item id - {{item.id}}, name = {{ item.name }}: opis = {{ item.description }} - Rozmiar: {{ item.size }} - Cena: {{ item.price }} zł <img src="{{ url_for('static', filename=item.img) }}" alt="Opis zdjęcia">
+ </li>
+      <form action="{{ url_for('views.delete_item', item_id=item.id) }}" method="post" style="display: inline;">
+        <button type="submit">Usuń</button>
+      </form>
+    {% endfor %}
+  </ul>
+{% endblock %}
