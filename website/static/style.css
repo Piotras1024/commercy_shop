@@ -1,0 +1,30 @@
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* trzy kolumny o równych rozmiarach */
+    grid-gap: 20px; /* odstępy między elementami */
+}
+
+.item {
+    text-align: center;
+    border: 1px solid #ddd; /* opcjonalna ramka dla każdego przedmiotu */
+    padding: 10px;
+    background-color: #f9f9f9; /* tło każdego przedmiotu */
+}
+
+.item img {
+    width: 100%; /* sprawia, że obrazy są responsywne i dopasowują się do szerokości kontenera */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .items-grid {
+        grid-template-columns: repeat(2, 1fr); /* dwie kolumny na mniejszych ekranach */
+    }
+}
+
+@media (max-width: 480px) {
+    .items-grid {
+        grid-template-columns: 1fr; /* jedna kolumna na bardzo małych ekranach */
+    }
+}
